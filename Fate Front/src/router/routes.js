@@ -40,6 +40,11 @@ const routes = [
         component: () => import("pages/CreateCharacter.vue"),
         meta: { requireAuth: true },
       },
+      {
+        path: "/watch-character/:id",
+        component: () => import("pages/WathCharacter.vue"),
+        meta: { requireAuth: true },
+      },
     ],
   },
 
