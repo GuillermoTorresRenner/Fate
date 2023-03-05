@@ -45,6 +45,21 @@ const routes = [
         component: () => import("pages/WathCharacter.vue"),
         meta: { requireAuth: true },
       },
+      {
+        path: "/create-campaign",
+        component: () => import("pages/CreateCampaign.vue"),
+        meta: { requireAuth: true },
+      },
+      {
+        path: "/watch-campaign/:id",
+        component: () => import("pages/WathcCampaings.vue"),
+        meta: { requireAuth: true },
+      },
+      {
+        path: "/pre-play/:id",
+        component: () => import("pages/PrePlay.vue"),
+        meta: { requireAuth: true },
+      },
     ],
   },
 

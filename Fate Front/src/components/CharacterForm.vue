@@ -7,10 +7,10 @@
       :default-opened="true"
     >
       <q-card>
-        <q-card-section class="row">
+        <q-card-section class="row justify-between">
           <q-file
             v-model="img"
-            class="col-3"
+            class="col-4"
             label="Avatar"
             bg-color="grey"
             filled
@@ -26,19 +26,29 @@
             </template>
           </q-file>
 
-          <div class="col">
-            <div class="text-primary text-center text-h6">
-              P. fate: {{ characterStore.getCharacter.fate.puntos }}
-            </div>
-            <div class="text-green text-center text-h6">
-              P. rec: {{ characterStore.getCharacter.fate.recuperacion }}
-            </div>
-          </div>
+          <q-input
+            v-model.number="characterStore.getCharacter.fate.puntos"
+            type="number"
+            label="Puntos Fate"
+            min="0"
+            max="3"
+            class="col-3 q-ml-md"
+            bg-color="green"
+          />
+          <q-input
+            v-model.number="characterStore.getCharacter.fate.recuperacion"
+            type="number"
+            label="Recuperación"
+            min="0"
+            max="3"
+            class="col-3 q-ml-md"
+            bg-color="purple"
+          />
         </q-card-section>
 
         <q-card-section>
           <q-input
-            v-model="characterStore.getCharacter.identidad.nombre"
+            v-model.trim="characterStore.getCharacter.identidad.nombre"
             type="text"
             label="Nombre"
             lazy-rules="ondemand"
@@ -48,7 +58,7 @@
             dense
           />
           <q-input
-            v-model="characterStore.getCharacter.identidad.descripcion"
+            v-model.trim="characterStore.getCharacter.identidad.descripcion"
             type="textarea"
             label="descripcion"
             class="row"
@@ -68,31 +78,31 @@
       <q-card>
         <q-card-section>
           <q-input
-            v-model="characterStore.getCharacter.aspectos.principal"
+            v-model.trim="characterStore.getCharacter.aspectos.principal"
             type="text"
             label="Aspecto Principal"
             dense
           />
           <q-input
-            v-model="characterStore.getCharacter.aspectos.complicacion"
+            v-model.trim="characterStore.getCharacter.aspectos.complicacion"
             type="text"
             label="Complicación"
             dense
           />
           <q-input
-            v-model="characterStore.getCharacter.aspectos.aspecto1"
+            v-model.trim="characterStore.getCharacter.aspectos.aspecto1"
             type="text"
             label="Aspecto 1"
             dense
           />
           <q-input
-            v-model="characterStore.getCharacter.aspectos.aspecto2"
+            v-model.trim="characterStore.getCharacter.aspectos.aspecto2"
             type="text"
             label="Aspecto 2"
             dense
           />
           <q-input
-            v-model="characterStore.getCharacter.aspectos.aspecto3"
+            v-model.trim="characterStore.getCharacter.aspectos.aspecto3"
             type="text"
             label="Aspecto 3"
             dense
@@ -110,7 +120,7 @@
       <q-card>
         <q-card-section>
           <q-input
-            v-model="characterStore.getCharacter.estilos.cauto"
+            v-model.number="characterStore.getCharacter.estilos.cauto"
             type="number"
             min="0"
             max="3"
@@ -118,7 +128,7 @@
             dense
           />
           <q-input
-            v-model="characterStore.getCharacter.estilos.furtivo"
+            v-model.number="characterStore.getCharacter.estilos.furtivo"
             type="number"
             min="0"
             max="3"
@@ -126,7 +136,7 @@
             dense
           />
           <q-input
-            v-model="characterStore.getCharacter.estilos.ingenioso"
+            v-model.number="characterStore.getCharacter.estilos.ingenioso"
             type="number"
             min="0"
             max="3"
@@ -134,7 +144,7 @@
             dense
           />
           <q-input
-            v-model="characterStore.getCharacter.estilos.llamativo"
+            v-model.number="characterStore.getCharacter.estilos.llamativo"
             type="number"
             min="0"
             max="3"
@@ -142,7 +152,7 @@
             dense
           />
           <q-input
-            v-model="characterStore.getCharacter.estilos.rapido"
+            v-model.number="characterStore.getCharacter.estilos.rapido"
             type="number"
             min="0"
             max="3"
@@ -150,7 +160,7 @@
             dense
           />
           <q-input
-            v-model="characterStore.getCharacter.estilos.vigoroso"
+            v-model.number="characterStore.getCharacter.estilos.vigoroso"
             type="number"
             min="0"
             max="3"
@@ -170,31 +180,31 @@
       <q-card>
         <q-card-section>
           <q-input
-            v-model="characterStore.getCharacter.proezas.proeza1"
+            v-model.trim="characterStore.getCharacter.proezas.proeza1"
             type="textarea"
             label="PROEZA 1"
             dense
           />
           <q-input
-            v-model="characterStore.getCharacter.proezas.proeza2"
+            v-model.trim="characterStore.getCharacter.proezas.proeza2"
             type="textarea"
             label="PROEZA 2"
             dense
           />
           <q-input
-            v-model="characterStore.getCharacter.proezas.proeza3"
+            v-model.trim="characterStore.getCharacter.proezas.proeza3"
             type="textarea"
             label="PROEZA 3"
             dense
           />
           <q-input
-            v-model="characterStore.getCharacter.proezas.proeza4"
+            v-model.trim="characterStore.getCharacter.proezas.proeza4"
             type="textarea"
             label="PROEZA 4"
             dense
           />
           <q-input
-            v-model="characterStore.getCharacter.proezas.proeza5"
+            v-model.trim="characterStore.getCharacter.proezas.proeza5"
             type="textarea"
             label="PROEZA 5"
             dense

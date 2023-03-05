@@ -21,7 +21,7 @@ const saltRounds = 10;
 const _ = require("underscore");
 
 // CREATE
-router.post("/create-user", [verificarAuth], async (req, res) => {
+router.post("/create-user", async (req, res) => {
   //Desestructuramos el body para poder encriptar la contraseña con bcrypt
 
   const body = {
@@ -55,22 +55,18 @@ router.get("/read-user/:id", [verificarAuth], async (req, res) => {
   }
 });
 
-// READ todos los documentos
-router.get(
-  "/read-user",
-  [verificarAuth, verificarAdministador],
-  async (req, res) => {
-    try {
-      const read = await UserModel.find();
-      res.json(read);
-    } catch (error) {
-      return res.status(400).json({
-        mensaje: "Ocurrio un error",
-        error,
-      });
-    }
+// READ todos los usuarios
+router.get("/get-users", [verificarAuth], async (req, res) => {
+  try {
+    const usersDB = await UserModel.find();
+    res.json(usersDB);
+  } catch (error) {
+    return res.status(400).json({
+      mensaje: "Ocurrio un error",
+      error,
+    });
   }
-);
+});
 
 // UPDATE
 router.put("/update-user/:id", [verificarAuth], async (req, res) => {
